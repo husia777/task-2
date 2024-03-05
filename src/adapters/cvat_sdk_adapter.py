@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from cvat_sdk.api_client import Configuration, ApiClient
 from cvat_sdk.core.helpers import get_paginated_collection
+from src.config import host, password, username
 
 
 class CVATSdkFacadeInterface(ABC):
@@ -10,8 +11,8 @@ class CVATSdkFacadeInterface(ABC):
 
 
 class CVATSdkFacade(CVATSdkFacadeInterface):
-    configuration = Configuration(host="http://192.168.13.20:8080/", username='hnaimov',
-                                  password='Lr3&qQvA',)
+    configuration = Configuration(host=host, username=username,
+                                  password=password,)
 
     def get_statistics_by_assignee(self, assignee: str):
         bbox_total = 0
